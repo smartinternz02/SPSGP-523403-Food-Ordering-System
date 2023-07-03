@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DC Admin-Update Menu Item</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            color: lightgreen;
+            background-image: url(https://media.istockphoto.com/id/1258733624/vector/herbs-and-spices-seamless-pattern-ginger-spinach-onion-pepper-garlic-fennel-packaging.jpg?s=612x612&w=0&k=20&c=6Fioel8Vz9YjpamIfhS68KzPhPfgPbcX5gs_6fJQPzQ=);
+        }
+   
+        h1 {
+            color: #ffffff;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="submit"] {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 4px;
+            background-color: #e5ce00;
+            color: #ffffff;
+            font-size: 16px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="white-box">
+        <h1>Update Menu Item</h1>
+        <form id="updateForm" action="/restaurants_restaurantadmin/saveUpdatedMenu/DcMenu" method="post">
+            <input type="hidden" name="id" th:value="${menuItem.id}" />
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="item_name" th:value="${menuItem.item_name}" required />
+
+            <label for="price">Price:</label>
+            <input type="text" id="price" name="price" th:value="${menuItem.price}" required />
+
+            <label for="price">Image:</label>
+            <input type="text" id="image" name="item_image" th:value="${menuItem.item_image}" required />
+
+            <div>
+                <input type="submit" value="Update" />
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>DC</title>
+</head>
+<body>
+    <div class="navbar">
+        <img class="navbarlogo" src="the-viteatz-low-resolution-logo-color-on-transparent-background.png" alt="logo">
+        <span><a href="Login.html" class="button">Log Out</a></span>
+    </div>
+    <h1>Buddies & Bites</h1>
+    <div class="part">
+        <div class="cbox" th:each="menuItem : ${menuItems}">
+            <a class="txt" href="#">
+                <img class="city" th:src="${menuItem.item_image}" alt="Menu Item Image">
+                <p th:text="${menuItem.item_name}">Menu Item Name</p>
+            </a>
+            <div class="price-box">
+                <div class="quantity">
+                    <span class="pricedef" th:text="${menuItem.price}"></span>
+                    <span class="price" th:text="${menuItem.price + 'rs'}"></span>
+                    <button class="minus">-</button>
+                    <span class="quantity-value">0</span>
+                    <button class="plus">+</button>
+                  </div>
+                </div>
+                <!--
+                 <div class="price-box">
+                <div class="quantity">
+                    <span class="pricedef">30</span>
+                    <span class="price">30rs</span>
+                    <button class="minus">-</button>
+                    <span class="quantity-value">0</span>
+                    <button class="plus">+</button>
+                </div>
+            </div>
+            -->
+  <button class="add-to-cart">Add to Cart</button>
+        </div>
+    </div> 
+    <div class="cart">
+        <h2>Cart</h2>
+        <div class="cart-items"></div>
+        <a href="payment.html"><button class="view-cart">Check Out</button></a>
+    </div>   
+</body>
+<style>
+    .cart h2{
+        color: black;
+        padding-top: 2%;
+        padding-left: 2%;
+    }
+    .cart{
+        background-color: rgb(212, 212, 212);
+        color: black;
+    }
+      h1{
+        text-align: center;
+        color: rgb(28, 5, 44);
+    }
+    .add-to-cart,.view-cart{
+        width: 100%;
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    body{
+        font-family: sans-serif;
+        color: lightgreen;
+        background-image:url("output-onlinepngtools.png")
+    }
+    span{
+        margin-left: 70%;   
+    }
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 10px;
+        border-radius: 4px;
+        background-color: #e5ce00;
+        color: #ffffff;
+        font-size: 16px;
+        text-decoration: none;
+    }
+    .button:hover {
+        background-color: #b5a403;
+    }
+    .pricedef{
+        display:none;
+    }
+    .navbarlogo{    
+        margin-left: 8%;
+        padding: 1%;
+        width: 10%;
+    }
+    .navbar{
+        background-color: #f5f0bd;
+        margin-left: -7%;
+        margin-right: -0.65%;
+        padding: -5%;
+        margin-top: -0.65%;
+        display: flex;
+        flex-direction: row;
+    }
+    .price-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+    }
+    .removeBut {
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: #ff0000;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        font-size: 12px;
+        cursor: pointer;
+    }
+    .remove-button:hover {
+        background-color: #cc0000;
+    }
+    .price {
+        font-weight: bold;
+        margin-left: -2%;
+        padding: 4%;
+        margin-bottom: 2%;
+    }
+    .quantity {
+        display: flex;
+        align-items: center;
+    }
+    .quantity-value {
+        margin: 0 10px;
+    }
+    .minus,.plus {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        border: none;
+        background-color: #4caf50;
+        color: #ffffff;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .plus {
+        margin-left: 5px;
+    }
+    .minus:hover,.plus:hover {
+        background-color: #45a049;
+    }
+    .part
+    {
+        display: flex;
+        flex-direction: row;
+        margin: 3%;
+        margin-top: 5%;
+    }
+    .city{
+        width: 250px;
+        height: 250px;
+        margin: 2%;
+    }
+    img:hover {
+        opacity: 0.7;
+    }
+    .txt {      
+        font-weight: 700;
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+    }
+    .cbox {
+        display: flex;
+        flex-direction: column;
+        background: rgb(150, 192, 150);
+        text-align: center;
+        margin: 1%;
+        color: rgb(3, 21, 3);
+        width: 260px;
+        font-size: large;
+    }
+    .cart-items{
+        margin-left: 2%;
+        margin-bottom: 2%;
+    }
+</style>
+<script>
+    const plusButtons = document.querySelectorAll('.plus');
+    const minusButtons = document.querySelectorAll('.minus');
+    plusButtons.forEach(button => {
+        button.addEventListener('click', incrementQuantity);
+    });
+    minusButtons.forEach(button => {
+        button.addEventListener('click', decrementQuantity);
+    });
+    function incrementQuantity(event) {
+        const quantityElement = event.target.parentNode.querySelector('.quantity-value');
+        const priceElement = event.target.parentNode.querySelector('.pricedef');
+        const priceDisplay = event.target.parentNode.querySelector('.price');
+        let quantity = parseInt(quantityElement.textContent);
+        let price = parseInt(priceElement.textContent);
+        if(quantity<10){
+            quantity++;
+            quantityElement.textContent = quantity;
+            priceDisplay.textContent = (quantity*price)+"rs";
+        }
+    }
+
+    function decrementQuantity(event) {
+        const quantityElement = event.target.parentNode.querySelector('.quantity-value');
+        const priceElement = event.target.parentNode.querySelector('.pricedef');
+        const priceDisplay = event.target.parentNode.querySelector('.price');
+        let quantity = parseInt(quantityElement.textContent);
+        let pricecurrent = parseInt(priceDisplay.textContent);
+        let price = parseInt(priceElement.textContent);
+        if (quantity > 0) {
+            quantity--;
+            quantityElement.textContent = quantity;
+            priceDisplay.textContent = (pricecurrent-price)+"rs";
+        }
+    }
+
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    const cartItemsContainer = document.querySelector('.cart-items');
+    let cart = [];
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', addToCart);
+    });
+    function addToCart(event) {
+        const itemContainer = event.target.parentNode;
+        const itemName = itemContainer.querySelector('p').textContent;
+        const itemPrice = parseInt(itemContainer.querySelector('.pricedef').textContent);
+        const updatePrice = parseInt(itemContainer.querySelector('.price').textContent);
+        const itemQuantity = parseInt(itemContainer.querySelector('.quantity-value').textContent);
+        const existingItem = cart.find(item => item.name === itemName);
+        if (existingItem) {
+            alert("Item already exist in the cart");
+        } 
+        else {
+            const newItem = {
+                name: itemName,
+                price: itemPrice,
+                quantity: itemQuantity,
+                total : updatePrice
+            };
+            cart.push(newItem);
+        }
+    updateCartDisplay();
+    }
+    function removeFromCart(itemName) {
+        const index = cart.findIndex(item => item.name === itemName);
+        if (index !== -1) {
+            cart.splice(index, 1);
+        }
+        updateCartDisplay();
+    }
+    function updateCartDisplay() {
+        cartItemsContainer.innerHTML = '';
+        cart.forEach(item => {
+            const itemElement = document.createElement('div');
+            itemElement.textContent = `${item.name} - ${item.quantity} x ${item.price}rs - ${item.total}rs`;
+            const removeButton = document.createElement('button');
+                removeButton.textContent = 'Remove';
+                removeButton.addEventListener('click', () => {
+                removeFromCart(item.name);
+                removeButton.classList.add("removeBut"); 
+            });
+            itemElement.appendChild(removeButton);
+                cartItemsContainer.appendChild(itemElement);
+            });
+    }
+    </script>
+</html>

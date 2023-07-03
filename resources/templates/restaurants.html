@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Restaurants</title>
+</head>
+<body>
+	<form th:action="@{/restaurants}" method="get">
+    <div class="navbar">
+        <img class="navbarlogo" src="https://drive.google.com/uc?id=1g32gOHrc5xUz3wWJn42L1xYvaRc8RTjL" alt="logo">
+        <span><a href="/Login" class="button">Log Out</a></span>
+    </div>
+    <div class="part">
+        <div class="cbox">
+            <a class="txt" href="/restaurants/dc"> <img class="city" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpnBqpjHVuGM8cTAo2enzs8pjCqyaFtcYang&usqp=CAU">
+            <p>DC</p></a>
+        </div>
+        <div class="cbox">
+            <a class="txt" href="/restaurants/fc"><img class="city" src="https://fastly.4sqi.net/img/general/600x600/27337744_hDh1bSMxgU0_zifSvFcggP7uBJPX5q-cG55GTfVxVOQ.jpg">
+            <p>FC</p></a>
+        </div>
+        <div class="cbox">
+            <a class="txt" href="/restaurants/gdn"><img class="city" src="https://img.restaurantguru.com/r736-VIT-Main-Canteen-facade.jpg"> 
+            <p>GDN Canteen</p></a>
+        </div>
+        <div class="cbox">
+            <a class="txt" href="/restaurants/apples"><img class="city" src="https://static.vecteezy.com/system/resources/previews/010/506/036/original/apple-icon-green-outline-apple-logo-isolated-on-white-background-illustration-for-any-design-vector.jpg">
+            <p>Apples</p></a>
+        </div>
+    </div>
+    <div class="part">
+        <div class="cbox">
+            <a class="txt" href="/restaurants/QuickBites"> <img class="city" src="https://10619-2.s.cdn12.com/rests/original/108_328635464.jpg">
+            <p>Quick Bites</p></a>
+        </div>
+        <div class="cbox">
+            <a class="txt" href="/restaurants/buddiesNBites"><img class="city" src="https://play-lh.googleusercontent.com/_3-LeBnc1NQO-aFuKSrf1z5hRfFWLgquFj7un6BuJO0aVrGxkvHXFRa8WKuHGI_B3SI">
+            <p>Buddies&nbsp;and&nbsp;Bites</p></a>
+        </div>
+        <div class="cbox">
+            <a class="txt" href="#"><img class="city" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYuz2h_WVaCviQJRnduRol9HSMjkxsY8cccA&usqp=CAU"> 
+            <p>Foodcy</p></a>
+        </div>
+    </div>
+	</form>
+</body>
+<style>
+  
+    body{
+        font-family: sans-serif;
+        color: lightgreen;
+        /* opacity: 0.9; */
+         background-image: url(https://media.istockphoto.com/id/1258733624/vector/herbs-and-spices-seamless-pattern-ginger-spinach-onion-pepper-garlic-fennel-packaging.jpg?s=612x612&w=0&k=20&c=6Fioel8Vz9YjpamIfhS68KzPhPfgPbcX5gs_6fJQPzQ=);
+
+    }
+    span{
+        margin-left: 70%;
+        
+    }
+    .button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 4px;
+  background-color: #e5ce00;
+  color: #ffffff;
+  font-size: 16px;
+  text-decoration: none;
+}
+       .navbarlogo{
+        
+        margin-left: 8%;
+        padding: 1%;
+        width: 10%;
+    }
+    .navbar{
+        /* height: 100%; */
+        background-color: #f5f0bd;
+        margin-left: -7%;
+        margin-right: -0.65%;
+        padding: -5%;
+        margin-top: -0.65%;
+        display: flex;
+        flex-direction: row;
+    }
+        .part
+        {
+            display: flex;
+            flex-direction: row;
+            margin: 3%;
+            margin-top: 5%;
+        }
+     .city
+        {
+            width: 250px;
+            height: 250px;
+            margin: 2%;
+        }
+        img:hover 
+        {
+            opacity: 0.7;
+        }
+     .txt
+    {       font-weight: 700;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            }
+
+            .cbox
+        {
+            display: flex;
+            flex-direction: column;
+            background: rgb(150, 192, 150);
+            text-align: center;
+            margin: 1%;
+            color: rgb(3, 21, 3);
+            width: 260px;
+            font-size: large;
+        }
+
+    </style>
+</html>

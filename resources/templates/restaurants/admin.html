@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin Dashboard</title>
+   <!-- <link rel="stylesheet" type="text/css" href="styles.css" />-->
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <img src="viteatz.png" alt="logo" class="logo" />
+        <h1>Admin Dashboard</h1>
+      </header>
+
+      <nav>
+        <ul>
+          <li><a href="#">Orders</a></li>
+          <li><a href="restaurant.html">Restaurants</a></li>
+          <li><a href="#">Customers</a></li>
+        </ul>
+      </nav>
+
+      <section>
+        <h2>Orders</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Customer</th>
+              <th>Restaurant</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Trishit</td>
+              <td>Enzo</td>
+              <td>Delivered</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Tarun</td>
+              <td>Foodcy</td>
+              <td>Delivered</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Yogavarshni</td>
+              <td>Quick Bytes</td>
+              <td>Processing</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Kislay</td>
+              <td>FC</td>
+              <td>Processing</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </body>
+  <Style>
+	  body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+ body {
+
+  background-image: url(https://media.istockphoto.com/id/1258733624/vector/herbs-and-spices-seamless-pattern-ginger-spinach-onion-pepper-garlic-fennel-packaging.jpg?s=612x612&w=0&k=20&c=6Fioel8Vz9YjpamIfhS68KzPhPfgPbcX5gs_6fJQPzQ=);
+ 
+}
+
+header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 20px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #f0f0f0;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f0f0f0;
+}
+
+  </Style>
+</html>

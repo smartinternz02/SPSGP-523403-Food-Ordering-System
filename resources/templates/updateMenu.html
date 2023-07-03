@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Update Menu</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Update Menu</h1>
+         <form th:action="@{/restaurantadmin/updateitem}" method="post">
+            <div class="form-group">
+                <label for="itemname">Item Name:</label>
+                <input type="text" id="itemname" name="item_name" placeholder="Enter your food item name" required>
+            </div>
+            <div class="form-group">
+                <label for="itemprice">Item Price:</label>
+                <input type="text" id="price" name="price" placeholder="Enter the updated item price" required>
+            </div>
+            <div class="form-group">
+                <label for="itemprice">Image Url:</label>
+                <input type="text" id="image" name="item_image" placeholder="Enter the updated item price" required>
+            </div>
+            <button type="Submit">Update Menu</button>
+        </form>
+    </div>
+</body>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-image: url(https://media.istockphoto.com/id/1258733624/vector/herbs-and-spices-seamless-pattern-ginger-spinach-onion-pepper-garlic-fennel-packaging.jpg?s=612x612&w=0&k=20&c=6Fioel8Vz9YjpamIfhS68KzPhPfgPbcX5gs_6fJQPzQ=);
+    }
+    .container {
+        width: 400px;
+        padding: 40px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        border-radius: 4px;
+    }
+    p{
+        text-align: center;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input[type="text"],input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+    }
+    button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-top: 20px;
+        border-radius: 4px;
+        background-color: #e5ce00;
+        color: #ffffff;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #b5a403;
+    }
+</style>
+</html>

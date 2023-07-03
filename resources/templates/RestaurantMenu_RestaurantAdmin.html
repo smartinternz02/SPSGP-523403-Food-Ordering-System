@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>FC</title>
+</head>
+<body>
+    <div class="navbar">
+        <img class="navbarlogo" src="https://drive.google.com/uc?id=1g32gOHrc5xUz3wWJn42L1xYvaRc8RTjL" alt="logo">
+        <div class="navbar-menu">
+            <a href="/restaurants_restaurantadmin/addItem/dc" class="button">Add&nbsp;Item</a>
+         </div>
+        <a href="/restaurantadminLogin" class="button">Logout</a>
+    </div>
+    <h1>Please Choose From the Below</h1>
+    <div class="part">
+        <div class="grid-container">
+            <div class="cbox" th:each="menuItem : ${menuItems}">
+                <a class="txt" href="#">
+                    <img class="city" th:src="${menuItem.item_image}" alt="Menu Item Image">
+                    <p th:text="${menuItem.item_name}">Menu Item Name</p>
+                </a>
+                <div class="price-box">
+                    <div class="quantity">
+                        <span class="price" th:text="${'₹'+menuItem.price}"></span>
+                    </div>
+                </div>
+                <div class="buttons">
+            <a th:href="@{/restaurants_restaurantadmin/updateMenu/{tableName}(tableName=${menuItem.tableName}, id=${menuItem.id})}" class="button">Update</a>
+
+
+             <a th:href="@{/restaurants_restaurantadmin/deleteMenu/{tableName}(tableName=${menuItem.tableName}, id=${menuItem.id})}" class="button">Delete</a>
+   
+           </div>
+           
+            </div>
+            </div>
+        </div>
+    </div>
+   
+</body>
+<style>
+    .cart h2{
+        color: black;
+        padding-top: 2%;
+        padding-left: 2%;
+    }
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* Create four equally-sized columns */
+        grid-gap: 1%; /* Adjust the gap between items as desired */
+    }
+    .cart {
+        background-color: rgb(212, 212, 212);
+        color: black;
+    }
+    h1 {
+        text-align: center;
+        color: rgb(28, 5, 44);
+    }
+    .add-to-cart, .view-cart {
+        width: 100%;
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    body {
+        font-family: sans-serif;
+        color: lightgreen;
+        background-image: url("output-onlinepngtools.png");
+    }
+    .navbarlogo {    
+        margin-left: 8%;
+        padding: 1%;
+        width: 10%;
+    }
+    .navbar {
+        background-color: #f5f0bd;
+        margin-left: -7%;
+        margin-right: -0.65%;
+        padding: -5%;
+        margin-top: -0.65%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navbar-menu {
+        display: flex;
+        gap: 10px;
+    }
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 10px;
+        border-radius: 4px;
+        background-color: #e5ce00;
+        color: #ffffff;
+        font-size: 16px;
+        text-decoration: none;
+    }
+    .button:hover {
+        background-color: #b5a403;
+    }
+    .pricedef {
+        display: none;
+    }
+    .price-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+    }
+    .price {
+        font-weight: bold;
+        margin-left: -2%;
+        padding: 4%;
+        margin-bottom: 2%;
+    }
+    .quantity {
+        display: flex;
+        align-items: center;
+    }
+    .quantity-value {
+        margin: 0 10px;
+    }
+    .minus, .plus {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        border: none;
+        background-color: #4caf50;
+        color: #ffffff;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .plus {
+        margin-left: 5px;
+    }
+    .minus:hover, .plus:hover {
+        background-color: #45a049;
+    }
+    .part {
+        display: flex;
+        flex-direction: row;
+        margin: 3%;
+        margin-top: 5%;
+    }
+    .city {
+        width: 250px;
+        height: 250px;
+        margin: 2%;
+    }
+    img:hover {
+        opacity: 0.7;
+    }
+    .txt {      
+        font-weight: 700;
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+    }
+    .cbox {
+        display: flex;
+        flex-direction: column;
+        background: rgb(150, 192, 150);
+        text-align: center;
+        margin: 1%;
+        color: rgb(3, 21, 3);
+        width: 260px;
+        font-size: large;
+    }
+    .cart-items {
+        margin-left: 2%;
+        margin-bottom: 2%;
+    }
+    body {
+        background-image: url(https://media.istockphoto.com/id/1258733624/vector/herbs-and-spices-seamless-pattern-ginger-spinach-onion-pepper-garlic-fennel-packaging.jpg?s=612x612&w=0&k=20&c=6Fioel8Vz9YjpamIfhS68KzPhPfgPbcX5gs_6fJQPzQ=);
+    }
+</style>
+</html>
